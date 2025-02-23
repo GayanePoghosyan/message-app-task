@@ -19,16 +19,17 @@ cd message-app
 
 Navigate to the `server` directory and install the server dependencies:
 
-bash
+```
 cd server
 npm install
+```
 
 Then, navigate to the `client` directory and install the client dependencies:
 
-bash
+```
 cd ../client
 npm install
-
+```
 
 ### 4. Run the Application
 
@@ -36,18 +37,19 @@ npm install
 
 Navigate back to the `server` directory and start the server:
 
-bash
+```
 cd server
-npm start
-
+npm run dev
+```
 
 #### Start the Client
 
 In a new terminal window, navigate to the `client` directory and start the React application:
 
-bash
+```
 cd client
-npm start
+npm run dev
+```
 
 ### 5. Access the Application
 
