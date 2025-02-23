@@ -8,9 +8,10 @@ This is a real-time messaging application built with Node.js for the server and 
 
 ### 1. Clone the Repository to your local machine
 
-bash
+```
 git clone https://github.com/GayanePoghosyan/message-app-task.git
 cd message-app
+```
 
 ### 2. Set Up MongoDB localy (required replicas initialization) or Create a MongoDB Cloud Account**: If you don't have one, sign up for a MongoDB Cloud account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). Choose M10 version for cluser
 
