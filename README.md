@@ -13,7 +13,7 @@ git clone https://github.com/GayanePoghosyan/message-app-task.git
 cd message-app
 ```
 
-### 2. Set Up MongoDB localy (required replicas initialization) or Create a MongoDB Cloud Account**: If you don't have one, sign up for a MongoDB Cloud account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). Choose M10 version for cluser
+### 2. Set Up MongoDB localy (required replicas initialization) or Create a MongoDB Cloud Account**: If you don't have one, sign up for a MongoDB Cloud account at [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). Please note that the free tier of MongoDB Atlas does not support replica sets. If you are using the free version, you will need to upgrade to a paid plan to enable replica sets. 
 
 ### 3. Install Dependencies
 
