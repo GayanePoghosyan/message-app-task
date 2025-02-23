@@ -1,0 +1,11 @@
+PORT=3000
+HOST=localhost
+
+# MongoDB
+MONGODB_URI=mongodb://localhost:27017
+MONGODB_DB_NAME=message-app
+MONGODB_REPLICA_SET=rs0
+
+# Message Service
+SIZE=10
+TIMEOUT=1000 
