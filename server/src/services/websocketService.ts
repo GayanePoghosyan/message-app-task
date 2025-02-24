@@ -1,7 +1,6 @@
 import { WebSocket, WebSocketServer } from 'ws';
 import { Collection } from 'mongodb';
 
-
 export const createWebSocketService = (wss: WebSocketServer, collection: Collection) => {
     let changeStream: any = null;
     let reconnectTimer: NodeJS.Timeout;
@@ -18,10 +17,8 @@ export const createWebSocketService = (wss: WebSocketServer, collection: Collect
         });
     }
 
-
     const startChangeStream = async () => {
         try {
-
             changeStream = collection.watch([], { fullDocument: 'updateLookup' });
 
             changeStream.on('change', (change: any) => {

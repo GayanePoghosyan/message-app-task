@@ -1,7 +1,6 @@
 import { Request, Response } from 'express';
 import { getMessages, createNewMessage } from '../services/messageService';
 
-
 export async function createMessage(req: Request, res: Response) {
   try {
     const {content} = req.body;

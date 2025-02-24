@@ -14,7 +14,6 @@ const PORT = 3000;
 const wss = new WebSocketServer({ server });
 let wsService: any;
 
-
 app.use(cors());
 app.use(express.json());
 app.use('/messages', messageRouter);

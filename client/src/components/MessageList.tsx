@@ -1,7 +1,6 @@
 import { useEffect, useRef } from 'react';
 import { useMessages } from '../hooks/useMessages';
 
-
 export function MessageList() {
   const { messages } = useMessages();
   const messagesEndRef = useRef<HTMLDivElement>(null);
@@ -28,4 +27,4 @@ export function MessageList() {
       </div>
     </div>
   );
-}   
+}  

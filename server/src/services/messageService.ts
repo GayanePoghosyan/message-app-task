@@ -5,11 +5,9 @@ import { config, client } from '../config/index';
 const BATCH_SIZE = config.messageService.size;
 const BATCH_TIMEOUT = config.messageService.timeout;
 
-
 let messageBuffer: Message[] = [];
 let batchTimer: NodeJS.Timeout | null = null;
 let messageCollection: Collection = client.db().collection('messages');
-
 
 const clearBatchTimer = () => {
   if (batchTimer) {
@@ -28,7 +26,6 @@ const addMessageToBuffer = (message: Message) => {
 
 const saveMessagesToDatabase = async () => {
   if (messageBuffer.length === 0) return;
-
   const messagesToSave = [...messageBuffer];
   messageBuffer = [];
   clearBatchTimer();
@@ -45,10 +42,8 @@ const saveMessagesToDatabase = async () => {
   }
 };
 
-
 export const createNewMessage = async (content: string): Promise<Message> => {
   try {
-
     const message: Message = {
       content,
       timestamp: new Date()
@@ -94,5 +89,3 @@ export const cleanup = async () => {
     throw new Error('Failed to cleanup message service');
   }
 }
-
-

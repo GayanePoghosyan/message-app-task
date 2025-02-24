@@ -1,7 +1,6 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { config } from '../config/config';
 
-
 export const useMessages = () => {
   const { apiUrl } = config;
 
@@ -16,7 +15,6 @@ export const useMessages = () => {
     },
     refetchOnMount: false,
   });
-
 
   const { mutateAsync: sendMessage } = useMutation({
     mutationFn: async (content: string) => {
