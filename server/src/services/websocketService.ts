@@ -7,22 +7,26 @@ export const createWebSocketService = (wss: WebSocketServer, collection: Collect
     let reconnectTimer: NodeJS.Timeout;
     const clients: Set<WebSocket> = new Set();
 
+    const emitMessage = (message: any) => {
+        clients.forEach(client => {
+            if (client.readyState === WebSocket.OPEN) {
+                client.send(JSON.stringify({
+                    type: 'newMessage',
+                    message: message
+                }));
+            }
+        });
+    }
+
 
     const startChangeStream = async () => {
         try {
-            changeStream = collection.watch([]);
 
-            changeStream.on('change', async (change: any) => {
+            changeStream = collection.watch([], { fullDocument: 'updateLookup' });
+
+            changeStream.on('change', (change: any) => {
                 if (change._id && change.operationType === 'insert') {
-
-                    clients.forEach(client => {
-                        if (client.readyState === WebSocket.OPEN) {
-                            client.send(JSON.stringify({
-                                type: 'newMessage',
-                                message: change.fullDocument
-                            }));
-                        }
-                    });
+                    emitMessage(change.fullDocument);
                 }
             });
 
@@ -63,8 +67,5 @@ export const createWebSocketService = (wss: WebSocketServer, collection: Collect
         clearTimeout(reconnectTimer);
     };
 
-    return {
-        initialize,
-        cleanup
-    };
+    return { initialize, cleanup };
 };
